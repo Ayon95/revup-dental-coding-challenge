@@ -38,3 +38,4 @@ A patient review post has a title, featured image, and two custom fields - ratin
 - Advanced Custom Fields
 - Menu Icons
 - Regenerate Thumbnails
+- All-in-one WP Migration

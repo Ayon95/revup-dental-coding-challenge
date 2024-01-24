@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+.container {
+  width: calc(100% - ($container-inline-padding) * 2);
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// The grid container can have two children
+// By default, they will be placed in the two evenly-sized content columns
+// This grid allows a child to break out of its container and spill to one side of the screen
+.split-screen-grid {
+  display: grid;
+  grid-template-columns:
+    [full-bleed-start] minmax($container-inline-padding, 1fr)
+    [content1-start] minmax(
+      0,
+      calc(($container-max-width / 2) - $container-inline-padding)
+    )
+    [content1-end content2-start] minmax(
+      0,
+      calc(($container-max-width / 2) - $container-inline-padding)
+    )
+    [content2-end] minmax($container-inline-padding, 1fr) [full-bleed-end];
+
+  & > *:first-child {
+    grid-column: content1-start / content1-end;
+  }
+
+  & > *:nth-child(2) {
+    grid-column: content2-start / content2-end;
+  }
+}
+
+.two-col {
+  display: grid;
+  gap: toRem(30px);
+}

@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+.reviews {
+  .section__title {
+    text-align: center;
+    margin-bottom: toRem(60px);
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, toRem(250px)), toRem(285px))
+    );
+    justify-content: space-around;
+    column-gap: toRem(62px);
+    row-gap: toRem(50px);
+    margin-bottom: toRem(48px);
+
+    img {
+      border-radius: 12px;
+      width: 100%;
+    }
+  }
+
+  .btn {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    svg {
+      margin-left: toRem(20px);
+    }
+  }
+}
+
+.review {
+  &__title {
+    margin-top: toRem(21px);
+    margin-bottom: toRem(8px);
+    font-size: $fs-h3-small;
+    color: hsl(0, 0%, 24%);
+  }
+
+  &__stars {
+    margin-bottom: toRem(8px);
+  }
+}

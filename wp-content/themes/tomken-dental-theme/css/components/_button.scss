@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+.btn {
+  display: inline-block;
+  padding: toRem(10px) toRem(16px);
+  border: none;
+  border-radius: 10px;
+  box-shadow: $btn-shadow;
+  font-size: $fs-link;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: $btn-shadow-hover;
+  }
+
+  &--primary,
+  &--primary:hover {
+    color: $color-white;
+    background-color: $color-accent;
+  }
+
+  &--secondary,
+  &--secondary:hover {
+    color: $color-primary-light;
+    background-color: $color-white;
+  }
+
+  &--secondary-outline {
+    border: 2px solid currentColor;
+  }
+
+  &--with-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      fill: currentColor;
+      margin-left: toRem(10px);
+    }
+  }
+
+  &--pill {
+    border-radius: toRem(100px);
+  }
+}

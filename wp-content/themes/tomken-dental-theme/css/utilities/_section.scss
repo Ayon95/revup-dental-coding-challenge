@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+$section-block-spacing: clamp(toRem(60px), 8vw, toRem(96px));
+
+.section {
+  &__title {
+    font-size: $fs-h2;
+    margin-bottom: toRem(20px);
+  }
+
+  &-block-margin {
+    margin-top: $section-block-spacing;
+    margin-bottom: $section-block-spacing;
+  }
+
+  &-bottom-margin {
+    margin-bottom: $section-block-spacing;
+  }
+}

@@ -1,0 +1,51 @@
+@use "functions" as *;
+
+// Breakpoints
+
+$bp-sm: 575px;
+$bp-md: 775px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+
+// Colors
+
+$color-light-blue: hsl(210, 100%, 60%);
+$color-dark-blue: hsl(216, 60%, 44%);
+$color-green: hsl(130, 45%, 54%);
+$color-white: hsl(0, 0%, 100%);
+
+$color-primary: $color-dark-blue;
+$color-primary-light: $color-light-blue;
+
+$color-accent: $color-green;
+
+// Font Family
+
+$ff-title: "Nunito", sans-serif;
+$ff-body: "Open Sans", sans-serif;
+
+// Font Size
+
+$fs-body: toRem(18px);
+$fs-link: toRem(17px);
+$fs-h1: clamp(toRem(40px), 5vw, toRem(60px));
+$fs-h2: clamp(toRem(28px), 4vw, toRem(40px));
+$fs-h2-small: clamp(toRem(26px), 4vw, toRem(36px));
+$fs-h3: clamp(toRem(23px), 3vw, toRem(32px));
+$fs-h3-small: clamp(toRem(22px), 3vw, toRem(28px));
+
+// Font Weight
+
+$fw-regular: 400;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+
+// Spacing
+
+$container-inline-padding: toRem(20px);
+$container-max-width: toRem(1200px);
+
+// Box Shadow
+
+$btn-shadow: 0 6px 10px hsla(0, 0%, 62%, 0.3);
+$btn-shadow-hover: 0 10px 14px hsla(0, 0%, 62%, 0.4);

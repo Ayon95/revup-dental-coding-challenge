@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+
+.faq {
+  .section__title {
+    text-align: center;
+  }
+
+  .accordion__item {
+    box-shadow: 0 4px 10px hsla(195, 59%, 47%, 0.15);
+    border-radius: 8px;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(24px);
+    }
+  }
+
+  .accordion__heading {
+    font-size: $fs-link;
+    color: $color-primary-light;
+  }
+
+  .accordion__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: toRem(10px);
+    width: 100%;
+    padding: toRem(24px) toRem(12px) 0;
+    font-size: inherit;
+    color: inherit;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .accordion__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    padding: toRem(14px);
+    transition: grid-template-rows 0.3s;
+
+    & > div {
+      overflow: hidden;
+    }
+
+    & > div p {
+      font-style: italic;
+      font-size: toRem(14px);
+    }
+  }
+
+  .accordion__panel[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion__icon {
+    transition: transform 0.3s;
+  }
+
+  .accordion__icon--rotated {
+    transform: rotate(180deg);
+  }
+}

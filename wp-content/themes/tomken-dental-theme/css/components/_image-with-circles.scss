@@ -1,0 +1,30 @@
+// It needs to be a div and have the same dimensions as its image
+// For this to happen, it needs to be in a grid container and have a justify-self value
+.image-with-circles-container {
+  display: flex;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    background-color: hsl(200, 100%, 93%);
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    right: 4px;
+    width: 25%;
+    height: 25%;
+    border-radius: 100%;
+    background-color: hsl(108, 38%, 85%);
+    z-index: -1;
+  }
+}

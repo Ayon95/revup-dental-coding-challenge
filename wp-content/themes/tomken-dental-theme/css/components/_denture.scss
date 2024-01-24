@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+.dentures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, toRem(450px)), 1fr));
+  gap: toRem(40px);
+}
+
+.denture {
+  border-radius: toRem(20px);
+  box-shadow: 0 4px 10px hsla(195, 59%, 47%, 0.22);
+  overflow: hidden;
+
+  &__title {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: toRem(21px) toRem(24px);
+  }
+
+  &__content {
+    background-color: hsl(200, 23%, 97%);
+    padding: toRem(24px);
+
+    & > p:not(:last-child) {
+      margin-bottom: toRem(16px);
+    }
+  }
+}

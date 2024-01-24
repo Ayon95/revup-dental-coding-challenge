@@ -1,0 +1,134 @@
+@use "../abstracts" as *;
+
+.footer {
+  padding-bottom: toRem(66px);
+
+  &__title {
+    margin-bottom: toRem(16px);
+    font-size: $fs-h3-small;
+  }
+
+  .menu {
+    list-style: none;
+  }
+
+  .menu-footer-page-menu-container {
+    margin-bottom: toRem(63px);
+
+    .menu {
+      display: grid;
+      row-gap: toRem(8px);
+    }
+  }
+
+  &__service-title {
+    margin-bottom: toRem(16px);
+    font-size: clamp(toRem(19px), 2.5vw, toRem(21px));
+    color: $color-primary;
+  }
+
+  &__services {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, toRem(400px)), 1fr)
+    );
+    gap: toRem(50px);
+
+    &-col {
+      display: flex;
+    }
+
+    &-col--1 {
+      column-gap: clamp(toRem(40px), 7vw, toRem(104px));
+      row-gap: toRem(50px);
+    }
+
+    &-col--2 {
+      column-gap: toRem(40px);
+      row-gap: toRem(50px);
+    }
+
+    .menu > li:not(:last-child) {
+      margin-bottom: toRem(15px);
+    }
+
+    .menu-item a {
+      display: flex;
+      align-items: center;
+      font-size: toRem(15px);
+    }
+
+    .menu-item ._svg {
+      width: toRem(25px);
+      height: toRem(25px);
+      margin-right: toRem(16px);
+      object-fit: contain;
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin-top: toRem(36px);
+    margin-bottom: clamp(toRem(70px), 10vw, toRem(110px));
+  }
+
+  &__copyright {
+    display: grid;
+    align-items: center;
+    gap: toRem(20px);
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: toRem(18px);
+    }
+
+    &-text span {
+      text-align: center;
+      font-size: toRem(14px);
+      font-style: italic;
+    }
+
+    &-revup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: toRem(22px);
+    }
+  }
+}
+
+@include respondMax($bp-sm) {
+  .footer__services-col {
+    flex-wrap: wrap;
+  }
+}
+
+@include respondMin(350px) {
+  .menu-footer-page-menu-container .menu {
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    column-gap: toRem(30px);
+  }
+}
+
+@include respondMin($bp-md) {
+  .menu-footer-page-menu-container .menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@include respondMin(850px) {
+  .footer__copyright {
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+
+    &-text,
+    &-revup {
+      justify-content: flex-start;
+    }
+  }
+}

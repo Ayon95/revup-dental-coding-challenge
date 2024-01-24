@@ -1,0 +1,93 @@
+@use "../abstracts" as *;
+
+.hero {
+  &.split-screen-grid {
+    & > :first-child {
+      grid-column: content1-start / content2-end;
+    }
+
+    & > :nth-child(2) {
+      grid-column: full-bleed;
+    }
+  }
+
+  &__text-content {
+    padding-top: toRem(50px);
+    padding-bottom: toRem(50px);
+    text-align: center;
+  }
+
+  &__icon {
+    width: clamp(toRem(60px), 7vw, toRem(80px));
+    margin-bottom: toRem(20px);
+    transform: translateX(5px);
+  }
+
+  &__subtitle {
+    font-size: clamp(toRem(19px), 2.5vw, toRem(22px));
+    margin-top: toRem(16px);
+    margin-bottom: toRem(32px);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(16px);
+  }
+
+  & > img {
+    width: 100%;
+  }
+}
+
+@include respondMin($bp-sm) {
+  .hero__buttons {
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+@include respondMin($bp-lg) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: toRem(15px);
+
+    &.split-screen-grid {
+      & > *:first-child {
+        grid-column: content1-start / content1-end;
+      }
+      & > *:nth-child(2) {
+        grid-column: content2-start / full-bleed-end;
+      }
+    }
+
+    &__text-content {
+      align-self: center;
+      text-align: left;
+    }
+
+    &__subtitle {
+      max-width: 40ch;
+    }
+  }
+}
+
+@include respondMax(calc($bp-lg - 1px)) {
+  .hero > img {
+    height: 40vh;
+  }
+}
+
+@include respondMinMax($bp-lg, $bp-xl) {
+  .hero__buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@include respondMin($bp-xl) {
+  .hero__buttons {
+    justify-content: flex-start;
+  }
+}

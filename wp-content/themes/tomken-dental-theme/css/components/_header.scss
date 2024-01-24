@@ -1,0 +1,95 @@
+@use "../abstracts" as *;
+
+$nav-item-gap: 30px;
+
+.site-header {
+  padding-top: toRem(18px);
+  padding-bottom: toRem(18px);
+  margin-bottom: toRem(10px);
+  box-shadow: 0 4px 13px hsla(210, 67%, 30%, 0.2);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: toRem($nav-item-gap);
+  }
+
+  .menu {
+    list-style: none;
+  }
+
+  &__nav {
+    .menu {
+      display: flex;
+      gap: toRem($nav-item-gap);
+    }
+  }
+
+  &__mobile-nav-container {
+    display: none;
+  }
+
+  &__menu-button {
+    display: none;
+  }
+}
+
+// Mobile Menu is enabled until this breakpoint
+
+@include respondMax($bp-lg) {
+  .site-header {
+    &__menu-button {
+      display: flex;
+      align-items: center;
+      gap: toRem(6px);
+      padding: toRem(3px) toRem(6px);
+      border: none;
+      background-color: transparent;
+      font-size: $fs-link;
+      color: $color-primary-light;
+
+      svg {
+        width: toRem(28px);
+      }
+    }
+
+    &__items {
+      display: none;
+    }
+
+    &__mobile-nav-container {
+      display: grid;
+      grid-template-rows: 0fr;
+      padding-left: toRem(25px);
+      padding-right: toRem(25px);
+      transition:
+        grid-template-rows 0.3s ease-in-out,
+        padding 0.3s ease-in-out;
+
+      .menu,
+      .menu-item:not(:last-child) {
+        margin-bottom: $nav-item-gap;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    &__mobile-nav {
+      overflow: hidden;
+    }
+  }
+
+  .mobile-menu-open {
+    padding-top: toRem(50px);
+    padding-bottom: toRem(10px);
+    grid-template-rows: 1fr;
+  }
+}

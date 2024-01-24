@@ -1,0 +1,21 @@
+# Ignore everything except for .gitignore and wp-content
+/*
+!.gitignore
+!README.md
+!wp-content
+
+# Ignore everything in wp-content except for themes, plugins, and mu-plugins
+wp-content/*
+!wp-content/themes
+!wp-content/plugins
+!wp-content/mu-plugins
+
+# Ignore everything in plugins
+wp-content/plugins/*
+
+# Ignore everything in themes except for tomken-dental-theme
+wp-content/themes/*
+!wp-content/themes/tomken-dental-theme
+
+node_modules
+build

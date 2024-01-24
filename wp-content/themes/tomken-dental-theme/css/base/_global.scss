@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "../abstracts" as *;
+
+body {
+  font-family: $ff-body;
+  font-size: $fs-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+button {
+  font-family: $ff-title;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  color: $color-primary;
+}
+
+h1 {
+  line-height: 1;
+  font-size: $fs-h1;
+}
+
+h1,
+a,
+button {
+  font-weight: $fw-bold;
+}
+
+h2 {
+  font-weight: $fw-semi-bold;
+}
+
+a {
+  color: $color-primary-light;
+  font-size: $fs-link;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: color.scale($color-primary-light, $lightness: -20%);
+}

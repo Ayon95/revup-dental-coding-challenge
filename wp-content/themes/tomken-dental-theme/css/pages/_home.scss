@@ -1,0 +1,140 @@
+@use "../abstracts" as *;
+
+// Right Fit Section
+
+.right-fit {
+  &__list {
+    margin-top: toRem(16px);
+    margin-bottom: toRem(16px);
+    padding-left: toRem(30px);
+  }
+
+  .two-col .image-with-circles-container {
+    justify-self: center;
+  }
+}
+
+@include respondMin($bp-lg) {
+  .right-fit .two-col {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+
+    & .right-fit__text-content {
+      grid-column: 2 / -1;
+    }
+
+    & .image-with-circles-container {
+      grid-row: 1;
+    }
+  }
+}
+
+// Denture Cost Section
+
+.cost {
+  .section__title {
+    text-align: center;
+  }
+
+  &__subtitle-container {
+    margin-top: toRem(24px);
+    margin-bottom: toRem(40px);
+    text-align: center;
+
+    & > p:not(:last-child) {
+      margin-bottom: toRem(12px);
+    }
+  }
+
+  &__cta {
+    margin-top: toRem(40px);
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: toRem(30px);
+  }
+}
+
+// Denture Care Section
+
+.denture-care {
+  .section__title {
+    margin-bottom: toRem(53px);
+    text-align: center;
+  }
+  // Select every odd numbered article
+  article:nth-of-type(2n + 1) {
+    .image-with-circles-container::before {
+      left: unset;
+      right: -40px;
+    }
+
+    .image-with-circles-container::after {
+      right: unset;
+      left: 4px;
+    }
+  }
+
+  &__post {
+    display: grid;
+    row-gap: toRem(30px);
+    column-gap: clamp(toRem(60px), 7vw, toRem(100px));
+
+    .image-with-circles-container {
+      justify-self: center;
+    }
+
+    &-title {
+      margin-bottom: toRem(16px);
+      font-size: $fs-h3;
+      font-weight: $fw-semi-bold;
+    }
+
+    &-text > p:not(:last-of-type) {
+      margin-bottom: toRem(16px);
+    }
+  }
+
+  &__post:not(:last-child) {
+    margin-bottom: toRem(76px);
+  }
+}
+
+@include respondMin($bp-lg) {
+  .denture-care__post {
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+
+    & > * {
+      grid-row: 1;
+    }
+
+    .image-with-circles-container {
+      justify-self: start;
+    }
+  }
+
+  .denture-care {
+    article:nth-of-type(2n + 1) {
+      .denture-care__post-text {
+        grid-column: 1 / 5;
+      }
+
+      .image-with-circles-container {
+        grid-column: 5 / 7;
+      }
+    }
+
+    article:nth-of-type(2n) {
+      .denture-care__post-text {
+        grid-column: 4 / -1;
+      }
+
+      .image-with-circles-container {
+        grid-column: 2 / 4;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use "../abstracts" as *;
+
+.contact-cta {
+  background-color: $color-accent;
+  padding: toRem(40px) clamp(toRem(30px), 6vw, toRem(68px));
+  border-radius: 20px;
+
+  &__icon {
+    width: clamp(toRem(150px), 26vw, toRem(200px));
+  }
+
+  &__title,
+  & p {
+    color: $color-white;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      font-size: $fs-h2-small;
+    }
+
+    span:nth-child(2) {
+      font-size: clamp(toRem(22px), 2.5vw, toRem(26px));
+    }
+  }
+
+  &__description {
+    max-width: 72ch;
+    margin-top: toRem(20px);
+    margin-bottom: toRem(30px);
+  }
+}
+
+.award {
+  position: relative;
+  padding: toRem(60px) clamp(toRem(30px), 6vw, toRem(50px)) toRem(40px);
+  border: 2px solid hsl(0, 0%, 90%);
+  border-radius: 14px;
+  transform: translateY(-20px);
+  z-index: -1;
+
+  &__title {
+    font-size: $fs-h3;
+    margin-top: toRem(20px);
+    margin-bottom: toRem(20px);
+  }
+}
+
+@include respondMin($bp-lg) {
+  .contact-cta {
+    display: flex;
+    align-items: center;
+    gap: clamp(toRem(40px), 4vw, toRem(55px));
+
+    &__icon {
+      flex-shrink: 0;
+    }
+  }
+
+  .award {
+    display: flex;
+    align-items: center;
+    gap: toRem(45px);
+
+    &__title {
+      margin-top: 0;
+    }
+  }
+}

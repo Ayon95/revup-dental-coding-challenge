@@ -1,6 +1,6 @@
-# RevUp Dental Coding Challenge
+# WordPress Dental Website Challenge
 
-This coding challenge by RevUp Dental involved implementing the Denture page of Tomken Dental based on a Figma design. The original website was built by RevUp Dental.
+This coding challenge involved implementing a landing page of a dental practice based on a Figma design. The original website was built by RevUp Dental.
 
 ## Desktop view
 
